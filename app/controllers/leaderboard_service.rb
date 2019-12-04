@@ -40,7 +40,7 @@ class LeaderboardService
       if Member.select(:score).where(member_id: member.member_id).last&.score != member.score
         member.save!
         @send_webhook = true
-        @new_scores_member_ids << members.member_id
+        @new_scores_member_ids << member.member_id
       end
     end
   end

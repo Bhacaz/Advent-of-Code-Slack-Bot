@@ -2,14 +2,14 @@
 require 'httparty'
 class SlackService
 
-  SLACK_URL = "https://hooks.slack.com/services/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"
+  SLACK_URL = "https://hooks.slack.com/services/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"
 
   def initialize(new_score_member_ids = [])
     @new_score_member_ids = new_score_member_ids
   end
 
   def send_webhook
-    HTTParty.post(SLACK_URL, body: build_body, headers: { "Content-type" => 'application/json' })
+    HTTParty.post(SLACK_URL, body: build_body)
   end
 
   def members_score_to_string
@@ -24,24 +24,10 @@ class SlackService
 
   def build_body
     {
-      "blocks": [
-        {
-          "type": "section",
-          "text": {
-            "type": "mrkdwn",
-            "text": members_score_to_string
-        }
-    },
-      {
-        "type": "context",
-        "elements": [
-          {
-            "type": "mrkdwn",
-            "text": "Last updated: #{Time.now.in_time_zone('Eastern Time (US & Canada)').strftime("%H:%M:%S")}"
-          }
-        ]
-      }
-    ]
+      channel: 'test-aoc',
+      username: 'Advent of code',
+      icon_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnfQ7zvIJfksV5SHqLnfIzkR6IB8mp77-G0Qiw5pTdLDrzexZW&s',
+      text: members_score_to_string,
     }.to_json
   end
 end
