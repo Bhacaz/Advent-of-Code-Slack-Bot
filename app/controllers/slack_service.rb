@@ -24,7 +24,7 @@ class SlackService
 
   def build_body
     {
-      channel: 'test-aoc',
+      channel: 'advent_of_code',
       username: 'Advent of code',
       icon_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnfQ7zvIJfksV5SHqLnfIzkR6IB8mp77-G0Qiw5pTdLDrzexZW&s',
       text: members_score_to_string

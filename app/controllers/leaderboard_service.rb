@@ -37,7 +37,7 @@ class LeaderboardService
 
   def save_score(members)
     members.each do |member|
-      if Member.select(:score).where(member_id: member.member_id).last&.score != member.score
+      if Member.select(:stars).where(member_id: member.member_id).last&.stars != member.stars
         member.save!
         @send_webhook = true
         @new_scores_member_ids << member.member_id
