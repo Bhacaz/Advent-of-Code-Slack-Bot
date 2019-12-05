@@ -24,11 +24,11 @@ complete a challenge every 10 minutes.
 $ EDITOR=nano crontab -e
 ```
 
-* Add that line
+* Add this line
 ```bash
 */10 * * * * curl http://localhost:3000/api/exec_webhook
 ```
 
-### Settings: 
+### Build on: 
 * Ruby 2.6.5
 * Rails 6.0.1
