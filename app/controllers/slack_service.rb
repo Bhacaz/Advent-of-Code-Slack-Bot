@@ -9,11 +9,11 @@ class SlackService
 
   def members_score_to_string
     scores = LeaderboardService.members_last_scores.map do |member|
-      row = "#{member.score.to_s.ljust(20)}#{member.stars.to_s.ljust(20)}#{member.name}"
+      row = "#{member.stars.to_s.ljust(20)}#{member.name}"
       row = "*#{row}* :tada:" if @new_score_member_ids.include? member.member_id
       row
     end
-    header = "#{'*Score*'.ljust(21)}#{'*Stars* ⭐'.ljust(15)}<https://adventofcode.com/2019/leaderboard/private/view/704521|*Leaderboard*>️"
+    header = "#{'*Stars* ⭐'.ljust(15)}<https://adventofcode.com/2019/leaderboard/private/view/704521|*Leaderboard*>️"
     [header, *scores].join("\n")
   end
 
