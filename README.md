@@ -3,7 +3,7 @@
 This is a Slack bot to post a Advent of code Private Leaderboard to a Slack channel
 when someone complete a challenge.
 
-<img width="457" alt="Screen Shot 2019-12-04 at 20 19 29" src="https://user-images.githubusercontent.com/7858787/70195482-d96e0c80-16d3-11ea-8b9c-a8000e63476f.png">
+<img width="419" alt="Screen Shot 2019-12-05 at 16 24 14" src="https://user-images.githubusercontent.com/7858787/70275316-ea725880-177b-11ea-88c3-f27eec8afd19.png">
 
 ### Prerequisites:
 * `slack_url`: An [_Incoming WebHooks_](https://my.slack.com/services/new/incoming-webhook/) url for workplace Slack.
