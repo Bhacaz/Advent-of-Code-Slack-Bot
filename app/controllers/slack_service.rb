@@ -1,15 +1,10 @@
-
-require 'httparty'
 class SlackService
-
-  SLACK_URL = "https://hooks.slack.com/services/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"
-
   def initialize(new_score_member_ids = [])
     @new_score_member_ids = new_score_member_ids
   end
 
   def send_webhook
-    HTTParty.post(SLACK_URL, body: build_body)
+    HTTParty.post(ENV['slack_url'], body: build_body)
   end
 
   def members_score_to_string
@@ -24,7 +19,7 @@ class SlackService
 
   def build_body
     {
-      channel: 'advent_of_code',
+      channel: ENV['slack_channel'],
       username: 'Advent of code',
       icon_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnfQ7zvIJfksV5SHqLnfIzkR6IB8mp77-G0Qiw5pTdLDrzexZW&s',
       text: members_score_to_string
