@@ -48,6 +48,6 @@ class LeaderboardService
 
   def self.members_last_scores
     member_ids = Member.group(:member_id).maximum(:id).values
-    Member.where(id: member_ids).order(score: :desc)
+    Member.where(id: member_ids).order(stars: :desc, score: :desc)
   end
 end
